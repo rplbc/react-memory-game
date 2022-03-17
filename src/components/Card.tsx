@@ -1,19 +1,16 @@
 import { memo } from "react";
-import { CardWithId, Actions } from "../../types";
-
-const useClassNames = (...args: (string | boolean)[]) =>
-  args.filter(Boolean).join(" ");
+import { CardWithId, Actions } from "../types";
+import joinClassNames from "../helpers/joinClassNames";
 
 const Card = ({ id, emoji, inGame, reversed, onClick }: CardProps) => {
   return (
     <div
-      className={useClassNames(
+      className={joinClassNames(
         "card",
         reversed && "card--rotated",
         !inGame && "card--hidden"
       )}
-      onClick={() => onClick({ type: "add", id })}
-      tabIndex={0}
+      onClick={() => onClick({ type: "show", id })}
     >
       <div className="card__wrapper">
         <div className="card__obverse" />

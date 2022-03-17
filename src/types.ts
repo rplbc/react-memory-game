@@ -13,8 +13,8 @@ export type Card = {
 export type CardWithId = { id: Id } & Card;
 
 export type Actions =
-  | { type: "add"; id: string }
-  | { type: "toggle" }
+  | { type: "show"; id: string }
+  | { type: "checkMatches" }
   | { type: "reset"; n: number };
 
 export type State = {

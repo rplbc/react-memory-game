@@ -1,4 +1,4 @@
-import useGameCards from "./hooks/useGameCards";
+import useGame from "./hooks/useGame";
 import Card from "./components/Card";
 
 const App = () => {
@@ -6,7 +6,7 @@ const App = () => {
     state: { cards, score },
     dispatch,
     reset,
-  } = useGameCards();
+  } = useGame();
 
   return (
     <div className="app">
