@@ -73,8 +73,8 @@ export const makeCards = (n: number, list = emojis) => {
   );
 
   return doubledEmojis.reduce(
-    (acc, { id, emoji }) => ({
-      ...acc,
+    (prev, { id, emoji }) => ({
+      ...prev,
       [id]: {
         emoji,
         inGame: true,

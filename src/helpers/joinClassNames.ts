@@ -1,5 +1,4 @@
-const joinClassNames = (...args: (string | boolean)[]) => {
-  return args.filter(Boolean).join(" ");
-};
+const joinClassNames = (...args: (string | boolean)[]) =>
+  args.filter(Boolean).join(" ");
 
 export default joinClassNames;

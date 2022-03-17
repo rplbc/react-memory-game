@@ -3,7 +3,7 @@ import Card from "./components/Card";
 
 const App = () => {
   const {
-    state: { cards, score },
+    state: { cards, moves },
     dispatch,
     reset,
   } = useGame();
@@ -20,7 +20,7 @@ const App = () => {
         <button onClick={reset} className="restart-btn">
           New game
         </button>
-        <div className="score">Score: {score}</div>
+        <div className="moves">Moves: {moves}</div>
       </div>
     </div>
   );

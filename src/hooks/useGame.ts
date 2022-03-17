@@ -23,7 +23,7 @@ const reducer: React.Reducer<State, Actions> = (state, action) => {
       const [id1, id2] = state.reversedCards;
       const areEqual = state.cards[id1].emoji === state.cards[id2].emoji;
       return {
-        score: state.score + 1,
+        moves: state.moves + 1,
         reversedCards: [],
         cards: {
           ...state.cards,

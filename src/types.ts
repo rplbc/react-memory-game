@@ -18,7 +18,7 @@ export type Actions =
   | { type: "reset"; n: number };
 
 export type State = {
-  score: number;
+  moves: number;
   cards: Cards;
   reversedCards: Id[];
 };
