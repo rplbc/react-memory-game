@@ -1,0 +1,22 @@
+$color: #5e60f8;
+
+@mixin hover-primary {
+  background-color: $color;
+  transition: 200ms background-color ease;
+  cursor: pointer;
+  &:hover {
+    background-color: darken($color, 5%);
+  }
+  &:active {
+    background-color: darken($color, 10%);
+    transition-duration: 10ms;
+  }
+}
+
+@mixin transition($property) {
+  transition: 300ms $property ease;
+}
+
+@mixin rounded {
+  border-radius: 3px;
+}
