@@ -55,9 +55,10 @@ const useGame = (n: number = 6) => {
 
   useEffect(() => {
     if (state.reversedCards.length === 2)
-      timeoutId.current = window.setTimeout(() => {
-        dispatch({ type: "checkMatches" });
-      }, 1000);
+      timeoutId.current = window.setTimeout(
+        () => dispatch({ type: "checkMatches" }),
+        1000
+      );
   }, [state.reversedCards]);
 
   const reset = useCallback(() => {

@@ -12,7 +12,7 @@ const App = () => {
     <div className="app">
       <div className="cards-container">
         {Object.entries(cards).map(([id, props]) => (
-          <Card {...{ id, ...props }} onClick={dispatch} key={id} />
+          <Card {...{ id, ...props }} dispatch={dispatch} key={id} />
         ))}
       </div>
 

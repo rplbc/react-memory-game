@@ -1,8 +1,8 @@
 import { memo } from "react";
-import { CardWithId, Actions } from "../types";
 import joinClassNames from "../helpers/joinClassNames";
+import { CardWithId, Actions } from "../types";
 
-const Card = ({ id, emoji, inGame, reversed, onClick }: CardProps) => {
+const Card = ({ id, emoji, inGame, reversed, dispatch }: CardProps) => {
   return (
     <div
       className={joinClassNames(
@@ -10,7 +10,7 @@ const Card = ({ id, emoji, inGame, reversed, onClick }: CardProps) => {
         reversed && "card--rotated",
         !inGame && "card--hidden"
       )}
-      onClick={() => onClick({ type: "show", id })}
+      onClick={() => dispatch({ type: "show", id })}
     >
       <div className="card__wrapper">
         <div className="card__obverse" />
@@ -23,7 +23,7 @@ const Card = ({ id, emoji, inGame, reversed, onClick }: CardProps) => {
 };
 
 export type CardProps = CardWithId & {
-  onClick: React.Dispatch<Actions>;
+  dispatch: React.Dispatch<Actions>;
 };
 
 export default memo(Card);
