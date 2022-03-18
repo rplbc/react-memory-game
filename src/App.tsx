@@ -1,9 +1,11 @@
 import useGame from "./hooks/useGame";
 import Card from "./components/Card";
+import { MdOutlineLeaderboard, MdAutorenew, MdAdsClick } from "react-icons/md";
+import BestScore from "./components/BestScore";
 
 const App = () => {
   const {
-    state: { cards, moves },
+    state: { cards, moves, pairsToFind, bestscore },
     dispatch,
     reset,
   } = useGame();
@@ -17,10 +19,16 @@ const App = () => {
       </div>
 
       <div className="panel">
-        <button onClick={reset} className="restart-btn">
-          New game
+        <button onClick={reset} className="restart-btn with-icon">
+          <MdAutorenew /> New game
         </button>
-        <div className="moves">Moves: {moves}</div>
+        <div className="moves with-icon">
+          <MdOutlineLeaderboard /> Moves: {moves}
+        </div>
+        <div className="moves with-icon">
+          <MdAdsClick /> Left: {pairsToFind}
+        </div>
+        <BestScore bestscore={bestscore} />
       </div>
     </div>
   );

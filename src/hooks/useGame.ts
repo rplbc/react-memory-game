@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useReducer, useRef } from "react";
+import getBestScore from "../helpers/getBestScore";
 import getInitialState from "../helpers/getInitialState";
 import { State, Actions } from "../types";
 
@@ -23,7 +24,8 @@ const reducer: React.Reducer<State, Actions> = (state, action) => {
       const [id1, id2] = state.reversedCards;
       const areEqual = state.cards[id1].emoji === state.cards[id2].emoji;
       return {
-        moves: state.moves + 1,
+        ...state,
+        pairsToFind: areEqual ? state.pairsToFind - 1 : state.pairsToFind,
         reversedCards: [],
         cards: {
           ...state.cards,
@@ -40,6 +42,23 @@ const reducer: React.Reducer<State, Actions> = (state, action) => {
         },
       };
 
+    case "nextMove": {
+      return {
+        ...state,
+        moves: state.moves + 1,
+      };
+    }
+
+    case "handleGameEnd": {
+      const prevBS = getBestScore();
+      const currentBS = prevBS ? Math.min(prevBS, state.moves) : state.moves;
+      window.localStorage.setItem("bestscore", `${currentBS}`);
+      return {
+        ...state,
+        bestscore: currentBS,
+      };
+    }
+
     case "reset": {
       return getInitialState(action.n);
     }
@@ -54,12 +73,18 @@ const useGame = (n: number = 6) => {
   const [state, dispatch] = useReducer(reducer, n, getInitialState);
 
   useEffect(() => {
-    if (state.reversedCards.length === 2)
+    if (state.reversedCards.length === 2) {
+      dispatch({ type: "nextMove" });
       timeoutId.current = window.setTimeout(
         () => dispatch({ type: "checkMatches" }),
         1000
       );
+    }
   }, [state.reversedCards]);
+
+  useEffect(() => {
+    if (state.pairsToFind === 0) dispatch({ type: "handleGameEnd" });
+  }, [state.pairsToFind]);
 
   const reset = useCallback(() => {
     clearTimeout(timeoutId.current || 0);
