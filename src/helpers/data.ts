@@ -202,7 +202,6 @@ export const data: Data[] = [
   { emoji: "🇷🇪", name: "Réunion" },
   { emoji: "🇷🇴", name: "Romania" },
   { emoji: "🇷🇸", name: "Serbia" },
-  { emoji: "🇷🇺", name: "Russia" },
   { emoji: "🇷🇼", name: "Rwanda" },
   { emoji: "🇸🇦", name: "Saudi Arabia" },
   { emoji: "🇸🇧", name: "Solomon Islands" },
