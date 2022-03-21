@@ -8,6 +8,7 @@ export type Card = {
   reversed: boolean;
   inGame: boolean;
   emoji: string;
+  name: string;
 };
 
 export type CardWithId = { id: Id } & Card;

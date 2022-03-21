@@ -1,41 +1,5 @@
 import cuid from "cuid";
-
-const emojis = [
-  "😃",
-  "😁",
-  "😅",
-  "😂",
-  "😇",
-  "😌",
-  "😍",
-  "😎",
-  "🥸",
-  "🥳",
-  "😭",
-  "🤬",
-  "🤯",
-  "🥶",
-  "😱",
-  "🤔",
-  "🥴",
-  "🤢",
-  "😷",
-  "🤑",
-  "🤠",
-  "👿",
-  "👹",
-  "👺",
-  "🤡",
-  "💩",
-  "👻",
-  "💀",
-  "☠️",
-  "👽",
-  "👾",
-  "🤖",
-  "🎃",
-  "😺",
-];
+import { data } from "./data";
 
 const shuffle = <T>(arr: T[]) => {
   const newArr = [...arr];
@@ -48,35 +12,37 @@ const shuffle = <T>(arr: T[]) => {
   return newArr;
 };
 
-export const makeCards = (n: number, list = emojis) => {
+export const makeCards = (n: number, list = data) => {
   if (n > list.length)
     throw new Error(`Amount must be less than ${list.length}`);
 
   let hold = shuffle(list);
-  let ret = [];
+  let ret: typeof hold = [];
 
   while (ret.length < n) {
-    ret.push(hold.shift()); // or pop
+    ret.push(hold.shift()!); // or pop
   }
 
   const doubledEmojis = shuffle(
     ret.flatMap((i) => [
       {
         id: cuid(),
-        emoji: i,
+        emoji: i.emoji,
+        name: i.name,
       },
       {
         id: cuid(),
-        emoji: i,
+        emoji: i.emoji,
+        name: i.name,
       },
     ])
   );
 
   return doubledEmojis.reduce(
-    (prev, { id, emoji }) => ({
+    (prev, { id, ...data }) => ({
       ...prev,
       [id]: {
-        emoji,
+        ...data,
         inGame: true,
         reversed: false,
       },

@@ -1,14 +1,14 @@
-$color: #5e60f8;
+$color: #007cff;
 
-@mixin hover-primary {
-  background-color: $color;
+@mixin hover-primary($c: $color) {
+  background-color: $c;
   transition: 200ms background-color ease;
   cursor: pointer;
   &:hover {
-    background-color: darken($color, 5%);
+    background-color: darken($c, 5%);
   }
   &:active {
-    background-color: darken($color, 10%);
+    background-color: darken($c, 10%);
     transition-duration: 10ms;
   }
 }

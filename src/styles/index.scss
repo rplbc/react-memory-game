@@ -27,6 +27,9 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 1fr;
   gap: 0.5em;
+  @media (orientation: portrait) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .card {
@@ -43,7 +46,7 @@ body {
     }
   }
   &--hidden {
-    opacity: 0.25;
+    opacity: 0.5;
   }
   &--rotated,
   &--hidden {
@@ -66,11 +69,14 @@ body {
 
 .card__reverse {
   background-color: #faf8ff;
+  color: #101010;
   position: relative;
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  transform: rotateY(-180deg);
 }
 
 .card__obverse {
@@ -90,27 +96,31 @@ body {
 }
 
 .emoji {
-  font-size: 3em;
+  font-size: 5em;
   user-select: none;
   @media (max-width: 568px) {
-    font-size: 2em;
+    font-size: 3em;
   }
 }
 
-.panel {
-  margin-top: 2em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
+.name {
+  text-align: center;
+  max-width: 90%;
 }
 
-.moves {
-  color: #999;
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  margin-bottom: 2em;
+  color: #7d7c7c;
+  font-weight: 600;
 }
 
 .restart-btn {
-  @include mixins.hover-primary;
+  @include mixins.hover-primary(#009469);
   @include mixins.rounded;
   display: block;
   padding: 1em 2em;
@@ -118,6 +128,7 @@ body {
   font-family: inherit;
   font-weight: 600;
   color: #fff;
+  margin: 2em auto 0;
 }
 
 .with-icon {

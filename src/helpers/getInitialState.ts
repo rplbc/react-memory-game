@@ -1,6 +1,6 @@
-import { makeCards } from "./emojis";
-import { State } from "../types";
+import { makeCards } from "./makeCards";
 import getBestScore from "./getBestScore";
+import { State } from "../types";
 
 const getInitialState = (n: number): State => ({
   reversedCards: [],
