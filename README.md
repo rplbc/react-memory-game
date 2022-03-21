@@ -16,4 +16,4 @@ yarn && yarn start
 
 ## 👀
 
-![Screenshot](.imgs/screenshot.png){:width="400px" height="372px"}
+![Screenshot](.imgs/screenshot.png)
