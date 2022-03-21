@@ -13,3 +13,7 @@ cd react-memory-game
 # install & run
 yarn && yarn start
 ```
+
+## 👀
+
+![Screenshot](.imgs/screenshot.png)
