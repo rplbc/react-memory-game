@@ -1,7 +1,6 @@
 # React Memory Game
 
-- flip cards to match emojis
-- built with React
+- flip cards to match flags
 - live version [here](https://rplbc.github.io/react-memory-game/)
 
 ## Install
