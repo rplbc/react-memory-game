@@ -23,22 +23,22 @@ export const makeCards = (n: number, list = data) => {
     ret.push(hold.shift()!); // or pop
   }
 
-  const doubledEmojis = shuffle(
+  const doubledItems = shuffle(
     ret.flatMap((i) => [
       {
         id: cuid(),
-        emoji: i.emoji,
+        code: i.code.toLowerCase(),
         name: i.name,
       },
       {
         id: cuid(),
-        emoji: i.emoji,
+        code: i.code.toLowerCase(),
         name: i.name,
       },
     ])
   );
 
-  return doubledEmojis.reduce(
+  return doubledItems.reduce(
     (prev, { id, ...data }) => ({
       ...prev,
       [id]: {

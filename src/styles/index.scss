@@ -95,15 +95,17 @@ body {
   }
 }
 
-.emoji {
-  font-size: 5em;
-  user-select: none;
-  @media (max-width: 568px) {
-    font-size: 3em;
+.card__flag {
+  img {
+    display: block;
+    width: 5em;
+    max-width: 90%;
+    height: auto;
+    margin: 0 auto 0.5em;
   }
 }
 
-.name {
+.card__name {
   text-align: center;
   max-width: 90%;
 }

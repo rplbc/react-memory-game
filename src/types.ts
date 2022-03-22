@@ -7,7 +7,7 @@ export type Cards = {
 export type Card = {
   reversed: boolean;
   inGame: boolean;
-  emoji: string;
+  code: string;
   name: string;
 };
 

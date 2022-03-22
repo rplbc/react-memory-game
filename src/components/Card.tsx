@@ -2,7 +2,7 @@ import { memo } from "react";
 import joinClassNames from "../helpers/joinClassNames";
 import { CardWithId, Actions } from "../types";
 
-const Card = ({ id, emoji, inGame, reversed, dispatch, name }: CardProps) => {
+const Card = ({ id, code, inGame, reversed, dispatch, name }: CardProps) => {
   return (
     <div
       className={joinClassNames(
@@ -15,8 +15,15 @@ const Card = ({ id, emoji, inGame, reversed, dispatch, name }: CardProps) => {
       <div className="card__wrapper">
         <div className="card__obverse" />
         <div className="card__reverse">
-          <div className="emoji">{emoji}</div>
-          <div className="name">{name}</div>
+          <div className="card__flag">
+            <img
+              src={`https://flagcdn.com/256x192/${code}.png`}
+              width="256"
+              height="192"
+              alt={name}
+            />
+          </div>
+          <div className="card__name">{name}</div>
         </div>
       </div>
     </div>

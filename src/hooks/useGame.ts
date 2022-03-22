@@ -22,7 +22,7 @@ const reducer: React.Reducer<State, Actions> = (state, action) => {
 
     case "checkMatches":
       const [id1, id2] = state.reversedCards;
-      const areEqual = state.cards[id1].emoji === state.cards[id2].emoji;
+      const areEqual = state.cards[id1].code === state.cards[id2].code;
       return {
         ...state,
         pairsToFind: areEqual ? state.pairsToFind - 1 : state.pairsToFind,
