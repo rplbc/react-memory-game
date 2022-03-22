@@ -16,4 +16,4 @@ yarn && yarn start
 
 ## 👀
 
-![Screenshot](.imgs/screenshot.png)
+![Screenshot](.github/screenshot.png)
