@@ -102,12 +102,18 @@ body {
     max-width: 90%;
     height: auto;
     margin: 0 auto 0.5em;
+    @media (max-width: 578px) {
+      width: 3em;
+    }
   }
 }
 
 .card__name {
   text-align: center;
   max-width: 90%;
+  @media (max-width: 578px) {
+    font-size: 12px;
+  }
 }
 
 .stats {
@@ -115,7 +121,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 2em;
+  gap: 1em 2em;
   margin-bottom: 2em;
   color: #7d7c7c;
   font-weight: 600;
