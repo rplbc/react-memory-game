@@ -3,7 +3,7 @@
 - flip cards to match flags
 - live version [here](https://rplbc.github.io/react-memory-game/)
 
-## Install
+## Usage
 
 ```bash
 # clone
